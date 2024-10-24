@@ -1,0 +1,90 @@
+﻿@using Microsoft.AspNetCore.Mvc
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EZFair</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/EZFair.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="~/css/layout.css">
+</head>
+<body>
+    <header style="background-color: #292929; color: #EBEBEB; border-bottom: 2.5px solid white;">
+        <div id="container">
+            <a href="@Url.Content("/")">
+                <img src="~/Images/logonovo.png" alt="Homepage" title="Homepage" class="ezfair" border="0" style="height: 75px; float: left; margin-left: 30px; margin-right: 60px;">
+            </a>
+            @*<div id="searchbar">
+                <input type="text" class="searchterm" placeholder="Pesquisar feira">
+                <img src="~/Images/search.png" alt="Search" class="searchicon">
+            </div>*@
+            <div id="account">
+                @if (User.IsInRole("Cliente"))
+                {
+                    <a href="@Url.Content("/PerfilCliente")">
+                        <img src="~/Images/accountnova.png" class="account" style="width: 50px; height: 50px; margin-left: 40px; margin-right: 40px; background: none; ">
+                    </a>
+                }
+                else if (User.IsInRole("Empresa"))
+                {
+                    <a href="@Url.Content("/PerfilEmpresa")">
+                        <img src="~/Images/accountnova.png" class="account" style="width: 50px; height: 50px; margin-left: 40px; margin-right: 40px; background: none; ">
+                    </a>
+                }
+                else
+                {
+                    <img src="~/Images/accountnova.png" class="account" style="width: 50px; height: 50px; margin-left: 40px; margin-right: 40px; background: none; ">
+                }
+            </div>
+
+            @if(User.Identity.IsAuthenticated)
+            {
+                <div id="hide">
+                    <a href="@Url.Content("~/Logout")" >Logout</a>      
+                </div>
+            }
+            else
+            {
+                <div id="hide">
+                    <a href="@Url.Content("~/ChooseRegister")">Registar</a>
+                    <a href="@Url.Content("~/ChooseLogin")">Login</a>
+                </div>
+            }
+        </div>
+</header>
+
+    <div class="container" style="margin-left: auto;">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+   <footer class="footer" style="background-color: #292929; color: #FFFFFF; border-top: 2.5px solid white;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p>&copy; 2023 - EZFair</p>
+            </div>
+            <div class="col-md-6">
+                <p style="text-align: right;">
+                        <a href="/Privacy" style="color: #FFFFFF;">Política de Privacidade</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

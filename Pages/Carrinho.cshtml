@@ -1,0 +1,72 @@
+﻿@*@page
+@model EZFair.Pages.CarrinhoModel
+@{
+    ViewData["Title"] = "Carrinho";
+}
+
+<br>
+<h1 style="text-align: center; color: #DEA402; font-size: 4em; text-shadow: 1px 1px 0px white;">Carrinho de Compras</h1>
+<br>
+<br>
+<div id="cart">
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+        </tbody>
+    </table>
+    <p>Total: <span id="cart-total"></span></p>
+</div>
+
+<script>
+    // an array to hold the items in the cart
+    let cart = [];
+
+    // sample products
+    let products = [
+        { name: "Product 1", price: 10 },
+        { name: "Product 2", price: 20 },
+        { name: "Product 3", price: 30 }
+    ];
+
+    // function to add a product to the cart
+    function addToCart(product) {
+        cart.push(product);
+        updateCart();
+    }
+
+    // function to update the cart display
+    function updateCart() {
+        let cartItems = document.getElementById("cart-items");
+        let cartTotal = document.getElementById("cart-total");
+
+        // clear existing items
+        cartItems.innerHTML = "";
+
+        // add new items
+        let total = 0;
+        for (let i = 0; i < cart.length; i++) {
+            let product = cart[i];
+            cartItems.innerHTML += "<tr><td>" + product.name + "</td><td>" + product.price + "</td></tr>";
+            total += product.price;
+        }
+
+        // update total
+        cartTotal.innerHTML = total;
+    }
+
+    // add sample products to the cart
+    for (let i = 0; i < products.length; i++) {
+        addToCart(products[i]);
+    }
+</script>
+
+<style>
+    body {
+        background-color: #121212;
+    }
+</style>*@

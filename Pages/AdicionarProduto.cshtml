@@ -1,0 +1,67 @@
+﻿@page "/Feira/{nomeFeira}/AdicionarProduto"
+@model EZFair.Pages.AdicionarProdutoModel
+@{
+}
+
+<style>
+    body {
+        background-color: #121212;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    <br>
+    <br>
+    <div style="text-align: center; color: #DEA402; font-size: 4em; text-shadow: 1px 1px 0px white;">Novo Produto</div>
+    <br>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Name" style="color:white; margin-left: 50px;" >Nome</label>
+            <input asp-for="Name" required class="form-control" style="margin-left: 50px;" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <br>
+        <br>
+        <div class="form-group">
+            <label asp-for="Price" style="color:white; margin-left: 50px;" >Preço</label>
+            <input asp-for="Price" required class="form-control" style="margin-left: 50px;" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <br>
+        <br>
+        <div class="form-group">
+            <label asp-for="Stock" style="color:white; margin-left: 50px;" >Stock</label>
+            <input asp-for="Stock" required class="form-control" style="margin-left: 50px;" />
+            <span asp-validation-for="Stock" class="text-danger"></span>
+        </div>
+        <br>
+        <br>
+        <div class="form-group">
+            <label asp-for="Descricao" style="color:white; margin-left: 50px;">Descrição</label>
+            <input asp-for="Descricao" class="form-control" style="margin-left: 50px;" />
+            <span asp-validation-for="Descricao" class="text-danger"></span>
+        </div>
+      @*  <br>
+        <div class="form-group">
+            <label asp-for="ImageFile" class="control-label" style="color:white; margin-left: 50px;">Imagem do Produto</label>
+            <input asp-for="ImageFile" class="form-control" style="margin-left: 50px;" />
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>*@
+        <br>
+        <br>
+        <div style="text-align:center;">
+            <button type="submit" class="button btn btn-primary" asp-page-handler="Pls" 
+                                                                style="background-color: #DEA402;
+                                                                color: white;
+                                                                padding: 15px 15px;
+                                                                text-decoration: none;
+                                                                display: inline-block;
+                                                                font-size: 35px;
+                                                                margin: 4px 2px;
+                                                                border: 1px solid white;
+                                                                cursor: pointer;">ADICIONAR</button>
+    </div>
+    </form>
+}
+

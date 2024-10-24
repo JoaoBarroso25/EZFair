@@ -1,0 +1,70 @@
+﻿@page
+@model EZFair.Pages.RegistoEmpresaModel
+@{
+    ViewData["Title"] = "Registo Empresa";
+}
+
+<style>
+    body {
+        background-color: #121212;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    <br>
+    <br>
+    <div style="text-align: center; color: #DEA402; font-size: 4em; text-shadow: 1px 1px 0px white;">Registar Empresa</div>
+    <br>
+    <div class="form-group">
+        <label asp-for="Name" style="color:white; margin-left: 50px;">Nome Empresa</label>
+        <input asp-for="Name" required class="form-control" style="margin-left: 50px;" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+        <label asp-for="Email" style="color:white; margin-left: 50px;" >Email</label>
+        <input asp-for="Email" required class="form-control" style="margin-left: 50px;" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+        <label asp-for="NIPC" style="color:white; margin-left: 50px;" >Número de Identificação de Pessoa Coletiva (NIPC)</label>
+        <input asp-for="NIPC" required class="form-control" style="margin-left: 50px;" />
+        <span asp-validation-for="NIPC" class="text-danger"></span>
+        
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+        <label asp-for="Password" style="color:white; margin-left: 50px;" >Password</label>
+        <input asp-for="Password" required type="password" class="form-control" style="margin-left: 50px;" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <br>
+    <br>
+    <div style="text-align:center;">
+        <button type="submit" class="button btn btn-primary" style="background-color: #DEA402;
+                                                                color: white;
+                                                                padding: 15px 15px;
+                                                                text-decoration: none;
+                                                                display: inline-block;
+                                                                font-size: 35px;
+                                                                margin: 4px 2px;
+                                                                border: 1px solid white;
+                                                                cursor: pointer;">REGISTAR</button>
+    <br>
+    </div>
+}
+
+
+
+

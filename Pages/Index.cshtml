@@ -1,0 +1,137 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<br>
+
+<h1 style="text-align: center; color: #DEA402; font-size: 4em; text-shadow: 1px 1px 0px white;">EZFair</h1>
+<br>
+<br>
+
+<center><h1 style="color: #DEA402; text-shadow: 1px 1px 0px white;">Feiras a Decorrer</h1></center>
+
+<br><br><br>
+
+<div style="color: white; display: flex; flex-wrap: nowrap; margin-left: 0px !important;  ">
+    <div style="display: flex; flex-direction: column; float: left; margin-left: 0px; ">
+        <h2 style="color: #b2b2b2;">Nome:</h2>
+        <br>
+        <h2 style="color: #b2b2b2;">Empresa:</h2>
+        <br>
+        <h2 style="color: #b2b2b2;">Categoria:</h2>
+    </div>
+
+
+<ul style="display: flex; flex-wrap: nowrap; list-style-type: none; padding: 10%; margin-top: -130px;">
+    @foreach (var feira in IndexModel.feiras)
+{
+    <li style="margin-right:100px; display: flex; flex-direction: column;">
+        <h2>@feira.nomeFeira</h2>
+        <br>
+        <h2> @Model.getEmpresaNome(feira)</h2>
+        <br>
+        <h2> @Model.getCategoriaNome(feira)</h2>
+        <br>
+        <form method="post">    
+                    <button type="submit" class="btn btn-primary" asp-page-handler="Escolher" asp-route-estado="@feira.estado" asp-route-idFeira="@feira.idFeira" asp-route-nomeFeira="@feira.nomeFeira"
+                            style="color: black; background-color: white; 
+                            border: 1px solid #E9AE0C;
+                            transition: background-color 0.2s ease-in-out;"
+                            onmouseover="this.style.backgroundColor='#E9AE0C'" 
+                            onmouseout="this.style.backgroundColor='white'">
+                    Ver Feira
+                    </button>
+                </form>
+        <br>
+        <h2>Acaba em @Model.getDuracao(feira) dias</h2>
+    </li>
+}
+</ul>
+</div>
+
+<center><h1 style="color: #DEA402; text-shadow: 1px 1px 0px white;">Feiras em Breve</h1></center><br>
+
+<div style="color: white; display: flex; flex-wrap: nowrap;">
+    <div style="display: flex; flex-direction: column;">
+        <h2 style="color: #b2b2b2;">Nome:</h2>
+        <br>
+        <h2 style="color: #b2b2b2;">Empresa:</h2>
+        <br>
+        <h2 style="color: #b2b2b2;">Categoria:</h2>
+    </div>
+
+
+<ul style="display: flex; flex-wrap: nowrap; list-style-type: none; padding: 10%; margin-top: -130px;">
+    @foreach (var feira in IndexModel.feirasBrevemente)
+{
+    <li style="margin-right:100px; display: flex; flex-direction: column;">
+        <h2 style="color: white;">@feira.nomeFeira</h2>
+                <br>
+        <h2 style="color: white;"> @Model.getEmpresaNome(feira)</h2>
+        <br>
+        <h2 style="color: white;"> @Model.getCategoriaNome(feira)</h2>
+        <br>
+         <form method="post">
+                    <button type="submit" class="btn btn-primary" asp-page-handler="Escolher" asp-route-estado="@feira.estado" asp-route-idFeira="@feira.idFeira" asp-route-nomeFeira="@feira.nomeFeira"
+                            style="color: black; background-color: white; 
+                            border: 1px solid #E9AE0C;
+                            transition: background-color 0.2s ease-in-out;"
+                            onmouseover="this.style.backgroundColor='#E9AE0C'" 
+                            onmouseout="this.style.backgroundColor='white'">
+                    Ver Feira
+                    </button>
+                </form>
+        <br>
+        <h2 style="color: white; ">Começa a @feira.dataInicio.ToString("dd/MM/yyyy")</h2>
+    </li>
+}
+</ul>
+</div>
+
+<center><h1 style="color: #DEA402; text-shadow: 1px 1px 0px white;">Feiras Terminados</h1></center><br><br>
+
+
+<div style="color: white; display: flex; flex-wrap: nowrap;">
+    <div style="display: flex; flex-direction: column;">
+        <h2 style="color: #b2b2b2;">Nome:</h2>
+        <br>
+        <h2 style="color: #b2b2b2;">Empresa:</h2>
+        <br>
+        <h2 style="color: #b2b2b2;">Categoria:</h2>
+    </div>
+
+
+<ul style="display: flex; flex-wrap: nowrap; list-style-type: none; padding: 10%; margin-top: -130px;">
+    @foreach (var feira in IndexModel.feirasTerminadas)
+{
+    <li style="margin-right:100px; display: flex; flex-direction: column;">
+        <h2>@feira.nomeFeira</h2>
+        <br>
+        <h2> @Model.getEmpresaNome(feira)</h2>
+        <br>
+        <h2> @Model.getCategoriaNome(feira)</h2>
+        <br>
+        <form method="post">
+                    <button type="submit" class="btn btn-primary" asp-page-handler="Escolher" asp-route-estado="@feira.estado" asp-route-idFeira="@feira.idFeira" asp-route-nomeFeira="@feira.nomeFeira"
+                            style="color: black; background-color: white; 
+                            border: 1px solid #E9AE0C;
+                            transition: background-color 0.2s ease-in-out;"
+                            onmouseover="this.style.backgroundColor='#E9AE0C'" 
+                            onmouseout="this.style.backgroundColor='white'">
+                    Ver Feira
+                    </button>
+                </form>
+        <br>
+        
+    </li>
+}
+</ul>
+
+
+<style>
+    body {
+        background-color: #121212;
+    }
+</style>

@@ -1,0 +1,77 @@
+﻿@page
+@model EZFair.Pages.CriarFeiraModel
+@{
+    ViewData["Title"] = "Criar Feira";
+}
+
+<style>
+    body {
+        background-color: #121212;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    <br>
+    <br>
+    <div style="text-align: center; color: #DEA402; font-size: 4em; text-shadow: 1px 1px 0px white;">Criar Feira</div>
+    <br>
+    <div class="form-group">
+        <label asp-for="Nome" style="color:white; margin-left: 50px;">Nome da Feira</label>
+        <input asp-for="Nome" required class="form-control" style="margin-left: 50px;" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+        <br>
+        <br>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Descricao" style="color:white; margin-left: 50px;">Descrição</label>
+        <input asp-for="Descricao" required class="form-control" style="margin-left: 50px;" />
+        <span asp-validation-for="Descricao" class="text-danger"></span>
+        <br>
+        <br>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Categoria" style="color:white; margin-left: 50px;">Categoria</label>
+        <select id="Categoria" name="Categoria" class="form-control" style="margin-left: 50px;">
+            <option value="option1">Desporto</option>
+            <option value="option2">Informática</option>
+            <option value="option3">Roupa</option>
+            <option value="option4">Jogos</option>
+            <option value="option4">Ferramentas</option>
+        </select>
+        <span asp-validation-for="Categoria" class="text-danger"></span>
+        <br>
+        <br>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DataInicio" style="color:white; margin-left: 50px;">Data de Início</label>
+        <input asp-for="DataInicio" required type="date" class="form-control" value="2023-01-01" style="margin-left: 50px;" />
+        <span asp-validation-for="DataInicio" class="text-danger"></span>
+        <br>
+        <br>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataFinal" style="color:white; margin-left: 50px;">Data do Fim</label>
+        <input asp-for="DataFinal" required type="date" class="form-control" value="2023-01-31" style="margin-left: 50px;" />
+        <span asp-validation-for="DataFinal" class="text-danger"></span>
+        <br>
+        <br>
+    </div>
+    <br>
+    <div style="text-align:center;">
+        <button type="submit" class="button btn btn-primary" style="background-color: #DEA402;
+                                                                color: white;
+                                                                padding: 15px 15px;
+                                                                text-decoration: none;
+                                                                display: inline-block;
+                                                                font-size: 35px;
+                                                                margin: 4px 2px;
+                                                                border: 1px solid white;
+                                                                cursor: pointer;">CRIAR</button>
+    </div>
+}

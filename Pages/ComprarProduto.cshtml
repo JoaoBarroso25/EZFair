@@ -1,0 +1,109 @@
+﻿@page "/Feira/{nomeFeira}/{idProduto}/ComprarProduto"
+@model EZFair.Pages.ComprarProdutoModel
+@{
+}
+
+<style>
+    body {
+        background-color: #121212;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    <br>
+    <br>
+    <div style="text-align: center; color: #DEA402; font-size: 4em; text-shadow: 1px 1px 0px white;">Checkout</div>
+    <br>
+    <div class="form-group">
+        <label asp-for="NomeCartaoCredito" style="color:white; margin-left: 50px;" >Nome no Cartão de Crédito</label>
+        <input asp-for="NomeCartaoCredito" required class="form-control" style="margin-left: 50px;"  />
+        <span asp-validation-for="NomeCartaoCredito" class="text-danger"></span>
+    </div>
+     <br>
+     <br>
+      <div class="form-group">
+        <label asp-for="NumeroCartaoCredito" style="color:white; margin-left: 50px;" >Número do Cartão de Crédito</label>
+        <input asp-for="NumeroCartaoCredito" required class="form-control" style="margin-left: 50px;"  />
+        <span asp-validation-for="NumeroCartaoCredito" class="text-danger"></span>
+    </div>
+     <br>
+     <br>
+      <div class="form-group">
+        <label asp-for="Validade" style="color:white; margin-left: 50px;" >Validade</label>
+        <input asp-for="Validade"  type="date" required class="form-control" style="margin-left: 50px;"  />
+        <span asp-validation-for="Validade" class="text-danger"></span>
+    </div>
+     <br>
+     <br>
+     <div class="form-group">
+        <label asp-for="CCV" style="color:white; margin-left: 50px;" >CCV</label>
+        <input asp-for="CCV" class="form-control" required style="margin-left: 50px;"  />
+        <span asp-validation-for="CCV" class="text-danger"></span>
+    </div>
+     <br>
+     <br>
+    <div class="form-group">
+        <label asp-for="EndereçodeFaturacao" style="color:white; margin-left: 50px;">Endereço de Faturação</label>
+        <input asp-for="EndereçodeFaturacao" required class="form-control" style="margin-left: 50px;" />
+        <span asp-validation-for="EndereçodeFaturacao" class="text-danger"></span>
+        <br>
+        <br>
+    </div>
+    <div class="form-group">
+        <label asp-for="EndereçodeEntrega" style="color:white; margin-left: 50px;" >Endereço de Entrega</label>
+        <input asp-for="EndereçodeEntrega" required class="form-control" style="margin-left: 50px;" />
+        <span asp-validation-for="EndereçodeEntrega" class="text-danger"></span>
+        <br>
+        <br>
+    </div>
+    <div class="form-group">
+        <label asp-for="NIF" style="color:white; margin-left: 50px;" >NIF</label>
+        <input asp-for="NIF" required class="form-control" style="margin-left: 50px;"  />
+        <span asp-validation-for="NIF" class="text-danger"></span>
+        <br>
+        <br>
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber" style="color:white; margin-left: 50px;" >Número de Telemóvel</label>
+        <input asp-for="PhoneNumber" required class="form-control" style="margin-left: 50px;"  />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        <br>
+        <br>
+    </div>
+    <br>
+    <div style="text-align:center;">
+        <form method="post">
+            <div style="text-align:center;">
+                <button type="submit" class="btn btn-primary" asp-page-handler="ConfirmarCompra"
+                    style="background-color: #DEA402;
+                       color: white;
+                       padding: 15px 15px;
+                       text-decoration: none;
+                       display: inline-block;
+                       font-size: 35px;
+                       margin: 4px 2px;
+                       border: 1px solid white;
+                       cursor: pointer;">
+                    COMPRAR
+                </button>
+            </div>
+        </form>
+
+
+    <!-- <button type="submit" class="button btn btn-primary" style="background-color: #DEA402;
+                                                                color: white;
+                                                                padding: 15px 15px;
+                                                                text-decoration: none;
+                                                                display: inline-block;
+                                                                font-size: 35px;
+                                                                margin: 4px 2px;
+                                                                border: 1px solid white;
+                                                                cursor: pointer;">Comprar</button></a>-->
+    </div>
+    <br>
+    <br>
+    <br>
+}
+
+

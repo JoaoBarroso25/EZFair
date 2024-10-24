@@ -1,0 +1,23 @@
+﻿@page
+@model EZFair.Pages.ThankYouModel
+
+<style>
+    body {
+        background-color: #121212;
+    }
+</style>
+
+ <div style="text-align: center; color: #DEA402; font-size: 4em; text-shadow: 1px 1px 0px white;">Recibo de Compra</div>
+ <br>
+<center>
+<p style="font-size: 1.5em; font-family: Arial, sans-serif; margin-top: 30px; color:white;">Número da Compra: #<span id="purchase-number"></span></p>
+<p style="font-size: 1.5em; font-family: Arial, sans-serif; margin-top: 30px; color:white; ">Email para apoio: <a href="mailto:support@ezfair.com">support@ezfair.com</a></p>
+<p style="font-size: 1.5em; font-family: Arial, sans-serif; margin-top: 30px; color:white;" >Obrigado pela sua compra!</p>
+</center>
+@section scripts{
+    <script>
+        // Generate a random number for the purchase number
+        var purchaseNumber = Math.floor(Math.random() * 100000000);
+        document.getElementById("purchase-number").innerHTML = purchaseNumber;
+    </script>
+}

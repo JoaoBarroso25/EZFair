@@ -1,0 +1,89 @@
+@page
+@model EZFair.Pages.ChooseRegister
+@{
+    ViewData["Title"] = "ChooseRegister";
+}
+
+<style>
+    body {
+        background-color: #121212;
+    }
+
+    .login-options {
+        display: flex;
+        justify-content: center;
+        margin-top: 200px;
+    }
+
+    .login-option {
+        width: 600px;
+        height: 300px;
+        background-color: #DEA402;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 76px;
+        cursor: pointer;
+        margin: 30px 70px;
+        position: relative;
+    }
+
+    .login-option:before {
+        content: "";
+        position: absolute;       
+        top: -200px;
+        left: -100px;
+        right: -100px;
+        bottom: -200px;
+        background-color: #292929;
+        z-index: -1;
+        }
+
+    .push-down {
+        padding-top: 100px;
+    }
+    h1{
+        color: white;
+        font-size: 60px;
+        padding-top: 200px;
+        text-align: center;
+        position: absolute;
+        top: 17%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 100%;
+    }
+    </style>
+
+    <div class="push-down">
+<h1 style="color: #DEA402; text-shadow: 1px 1px 0px white;">Modo de Registo</h1>
+
+<form method="post">
+
+<div class="login-options">
+    <div class="login-option">
+        <input type="radio" id="empresa" name="tipo" value="empresa" style="display: none;">
+        <a href="@Url.Content("~/RegistoEmpresa")"  style="font-size:60px; color: white; text-shadow: 1px 1px 0px black;">
+<label for="empresa" onclick="redirectToRegistoEmpresa()">Empresa</label>
+</a>
+        </div>
+        <div class="login-option">
+            <input type="radio" id="cliente" name="tipo" value="cliente" style="display: none;">
+            <a href="@Url.Content("~/RegistoCliente")"  style="font-size:60px; color: white; text-shadow: 1px 1px 0px black;">
+                <label for="cliente" onclick="redirectToRegistoCliente()">Cliente</label>
+            </a>
+        </div>
+    </div>
+
+ 
+   <script>
+        function redirectToRegistoCliente(){
+            window.location.href = "@Url.Content("~/RegistoCliente")";
+        }
+        function redirectToRegistoEmpresa() {
+            window.location.href = "@Url.Content("~/RegistoEmpresa")";
+        }
+    </script>
+
+   
+</form>

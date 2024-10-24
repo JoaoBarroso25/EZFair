@@ -1,0 +1,39 @@
+{
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5053"
+    },
+    "https": {
+      "commandName": "Project",
+      "commandLineArgs": "/config:applicationhost.config /user:Hugo /site:EZFair /apppool:Clr4IntegratedAppPool /userProfile:true",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7085;http://localhost:5053"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "commandLineArgs": "/config:applicationhost.config /user:Hugo /site:EZFair /apppool:Clr4IntegratedAppPool /userProfile:true",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:46134",
+      "sslPort": 44368
+    }
+  }
+}

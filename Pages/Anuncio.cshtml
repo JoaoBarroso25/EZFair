@@ -1,0 +1,48 @@
+﻿@page "/Feira/{nomeFeira}/{idProduto}"
+@model EZFair.Pages.AnuncioModel
+@{
+}
+
+<br>
+<h1 style="text-align: center; color: #DEA402; font-size: 4em; text-shadow: 1px 1px 0px white;">@AnuncioModel.nome</h1>
+<br>
+<br>
+<div class="prod">
+    <p style="color: white; margin-right: 350px; font-size: 1.5em;">Preço: @AnuncioModel.preco€</p>
+    <p style="color: white; margin-right: 350px; font-size: 1.5em;">Stock: @AnuncioModel.stock</p>
+    <p style="color: white; margin-right: 250px; font-size: 1.5em;">Descrição do Produto: @Model.descricao</p>
+</div>
+<br>
+
+<br>
+<br>
+<br>
+<form method="post">
+    <div style="text-align:center;">
+        <button type="submit" class="btn btn-primary" asp-page-handler="Comprar"
+                style="background-color: #DEA402;
+                       color: white;
+                       padding: 15px 15px;
+                       text-decoration: none;
+                       display: inline-block;
+                       font-size: 35px;
+                       margin: 4px 2px;
+                       border: 1px solid white;
+                       cursor: pointer;">
+            COMPRAR
+        </button>
+    </div>
+</form>
+<br>
+
+
+<style>
+    body {
+        background-color: #121212;
+    }
+
+    .prod p {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+

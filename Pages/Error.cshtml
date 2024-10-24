@@ -1,0 +1,41 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Erro";
+}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Error</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #121212;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: white;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: white;
+        }
+        p {
+            color: white;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <h1 class="text-danger">Error.</h1>
+      <h2 class="text-danger">Um erro ocorreu durante o processamento do seu pedido.</h2>
+        <p>Pedimos desculpas pela inconveniência. Tente novamente mais tarde ou entre em contato conosco em support@ezfair.com para obter assistência.</p>
+    </div>
+  </body>
+</html>

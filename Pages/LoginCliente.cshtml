@@ -1,0 +1,45 @@
+﻿@page
+@model EZFair.Pages.LoginClienteModel
+@{
+    ViewData["Title"] = "Login Cliente";
+}
+
+<style>
+    body {
+        background-color: #121212;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    <br>
+    <br>
+    <div style="text-align: center; color: #DEA402; font-size: 4em; text-shadow: 1px 1px 0px white;">Login Cliente</div>
+<br>
+    <div class="form-group">
+        <label asp-for="Username" style="color:white; margin-left: 50px;" >Nome</label>
+        <input asp-for="Username" required class="form-control" style="margin-left: 50px;"  />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+        <label asp-for="Password" style="color:white; margin-left: 50px;" >Password</label>
+        <input asp-for="Password" type="password" required class="form-control" style="margin-left: 50px;"  />
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <br>
+        <br>
+    </div>
+    <br>
+     <div style="text-align:center;">
+     <button type="submit" class="button btn btn-primary" style="background-color: #DEA402;
+                                                                color: white;
+                                                                padding: 15px 15px;
+                                                                text-decoration: none;
+                                                                display: inline-block;
+                                                                font-size: 35px;
+                                                                margin: 4px 2px;
+                                                                border: 1px solid white;
+                                                                cursor: pointer;">LOGIN</button>
+    </div>
+}
